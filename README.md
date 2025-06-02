@@ -77,27 +77,24 @@ cd azure-functions-lab
 - Name your function **"SendToQueue"**
 - Choose **"Function"** for authorization level
 
-  ## Step 2: Add Storage Queue Output Binding
+## Step 2: Add Storage Queue Output Binding
 
 1. Modify the `function.json` file  
    *(this should be auto-generated in the `HttpExample` folder)*
 
 2. Update the Python function code in:  
    `HttpExample/__init__.py`
-
 ---
 
 ## Step 3: Test the Function
 
 ### Start the function locally
-
 func start
 
 ### Test URLs
 
 - [http://localhost:7071/api/SendToQueue](http://localhost:7071/api/SendToQueue)
 - [http://localhost:7071/api/SendToQueue?name=Azure](http://localhost:7071/api/SendToQueue?name=Azure)
-
 
 ---
 
@@ -112,12 +109,11 @@ az group create --name AzureFunctionsQuickstart-rg --location canadacentral
 A storage account, which maintains the state and other information about your projects.
 az storage account create --name azurestoragename123 --location canadacentral --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
 
-## Create a Function App
+3. ## Create a Function App
 Create a function app that provides the environment for executing your function code.
-# Using Python 3.11.9 runtime, Windows OS
 az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location canadacentral --runtime python --runtime-version 3.11.9 --functions-version 4 --name http_trigger --os-type windows --storage-account azurestoragename123
 
-## 4. Deploy to Azure
+## Step 4. Deploy to Azure
 Deploy your function app to Azure using the Azure Functions Core Tools:
 func azure functionapp publish http-trigger-app123
 
@@ -134,17 +130,11 @@ Function name: **SqlOutputFunction2**
 2. **Create a SQL Server:**
 az sql server create --name lab1sqlserver123 --resource-group AzureFunctionsQuickstart-rg --location canadacentral --admin-user sqladmin --admin-password dodydody@100
 
-2. **Create a SQL Database:**
+3. **Create a SQL Database:**
 az sql db create --resource-group AzureFunctionsQuickstart-rg --server lab1sqlserver123 --name Lab1Db --service-objective S0
 
-
-
-
-
-
-
-
-
+4. **Allow Azure services to access the database:**
+az sql server firewall-rule create --resource-group AzureFunctionsQuickstart-rg --server lab1sqlserver123 --name AllowAzureServices --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 
 
 
