@@ -5,6 +5,70 @@
 YouTube Demo Link - 5 Minute Walkthrough
 https://youtu.be/LposiZiC8v4
 
+# Lab: Serverless Azure Functions with Output Bindings
+
+Serverless is a development model that allows developers to build and run applications without having to manage servers. There are still servers in serverless, but they are abstracted away from app development.
+
+This lab involves creating two serverless functions with output bindings:
+- One for **Azure Storage Queues**
+- One for **Azure SQL Database**
+
+---
+
+## Prerequisites
+
+### 1. Install Required Tools
+
+- [Visual Studio Code with Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+- Python 3.8 or higher
+- [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+- [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+- [Git](https://git-scm.com/)
+- Active Azure subscription
+
+---
+
+### 2. Check Installation
+
+#### ✅ Check Azure Functions Core Tools
+
+```bash
+func --version
+4.0.7317
+
+Check Azure CLI
+az --version
+
+azure-cli    2.70.0 *
+
+Check Azure Subscription
+az account list --output table
+
+3. Install VS Code Extensions
+Azure Functions extension
+Python extension
+
+4. Sign in to Azure
+az login
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Objective
 
 In this lab, you will develop two serverless Azure Function apps using **Python** and **Visual Studio Code**. You'll implement **output bindings** to connect your functions with Azure **Storage Queues** and **Azure SQL Database**.
