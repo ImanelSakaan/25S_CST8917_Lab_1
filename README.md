@@ -101,7 +101,7 @@ func start
 
 ---
 
-# Create supporting Azure resources for your function
+### Create supporting Azure resources for your function
 
 Before you can deploy your function code to Azure, you need to create three resources:
 
