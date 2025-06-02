@@ -1,4 +1,9 @@
 # CST8917 Lab 1: Building Azure Function Apps with Output Bindings
+---
+🎥 Demo Video
+
+YouTube Demo Link - 5 Minute Walkthrough
+https://youtu.be/LposiZiC8v4
 
 ## Objective
 
