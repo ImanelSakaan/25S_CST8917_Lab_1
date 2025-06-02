@@ -1,0 +1,8 @@
+{
+  "IsEncrypted": false,
+  "Values": {    
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "Server=tcp:lab1sqlserver123.database.windows.net,1433;Initial Catalog=Lab1Db;Persist Security Info=False;User ID=sqladmin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+    "SqlConnectionString": "Server=tcp:lab1sqlserver123.database.windows.net,1433;Initial Catalog=Lab1Db;Persist Security Info=False;User ID=sqladmin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  }
+}
