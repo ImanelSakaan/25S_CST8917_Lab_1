@@ -32,27 +32,110 @@ This lab involves creating two serverless functions with output bindings:
 
 #### ✅ Check Azure Functions Core Tools
 
-```bash
-func --version
-4.0.7317
+    func --version
+    4.0.7317
 
-Check Azure CLI
-az --version
+#### ✅ Check Azure CLI
+    az --version
+    
+    azure-cli    
+    2.70.0 *
 
-azure-cli    2.70.0 *
+#### ✅ Check Azure Subscription
+    az account list --output table
 
-Check Azure Subscription
-az account list --output table
+### 3. Install VS Code Extensions
+    Azure Functions extension
+    Python extension
 
-3. Install VS Code Extensions
-Azure Functions extension
-Python extension
+### 4. Sign in to Azure
+    az login
 
-4. Sign in to Azure
-az login
+---
+# Part 1: Azure Storage Queue Output Binding / HTTP Trigger
+
+Let's start with the first tutorial – adding a Storage Queue output binding.
+
+---
+
+## Step 1: Create the Function Project
+
+### 1. Create a new folder for your project:
+
+mkdir azure-functions-lab
+cd azure-functions-lab
+
+### 2. Initialize the Function project in VS Code
+
+- Open VS Code in the current directory: `code .`
+- Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
+- Type **"Azure Functions: Create New Project"**
+- Select the current folder
+- Choose **"Python"** as the language
+- Choose **"Python 3.8+"** as the Python interpreter
+- Select **"HTTP trigger"** as the template
+- Name your function **"SendToQueue"**
+- Choose **"Function"** for authorization level
+
+  ## Step 2: Add Storage Queue Output Binding
+
+1. Modify the `function.json` file  
+   *(this should be auto-generated in the `HttpExample` folder)*
+
+2. Update the Python function code in:  
+   `HttpExample/__init__.py`
+
+---
+
+## Step 3: Test the Function
+
+### Start the function locally
+
+func start
+
+### Test URLs
+
+- [http://localhost:7071/api/SendToQueue](http://localhost:7071/api/SendToQueue)
+- [http://localhost:7071/api/SendToQueue?name=Azure](http://localhost:7071/api/SendToQueue?name=Azure)
 
 
+---
 
+# Create supporting Azure resources for your function
+
+Before you can deploy your function code to Azure, you need to create three resources:
+
+1. **A resource group**, which is a logical container for related resources.
+az group create --name AzureFunctionsQuickstart-rg --location canadacentral
+
+2. **A Storage Account**
+A storage account, which maintains the state and other information about your projects.
+az storage account create --name azurestoragename123 --location canadacentral --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+
+## Create a Function App
+Create a function app that provides the environment for executing your function code.
+# Using Python 3.11.9 runtime, Windows OS
+az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location canadacentral --runtime python --runtime-version 3.11.9 --functions-version 4 --name http_trigger --os-type windows --storage-account azurestoragename123
+
+## 4. Deploy to Azure
+Deploy your function app to Azure using the Azure Functions Core Tools:
+func azure functionapp publish http-trigger-app123
+
+# Part 2: Azure SQL Output Binding / HTTP trigger with Azure SQL Database output binding
+
+## Prerequisites
+Install the Azure SQL extension for Azure CLI:
+az extension add --name sql
+
+1. **Create a New Azure Function**
+Function name: **SqlOutputFunction2**
+
+**Set Up Azure SQL Resources**
+2. **Create a SQL Server:**
+az sql server create --name lab1sqlserver123 --resource-group AzureFunctionsQuickstart-rg --location canadacentral --admin-user sqladmin --admin-password dodydody@100
+
+2. **Create a SQL Database:**
+az sql db create --resource-group AzureFunctionsQuickstart-rg --server lab1sqlserver123 --name Lab1Db --service-objective S0
 
 
 
